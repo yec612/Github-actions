@@ -30,3 +30,11 @@ jobs:
       - name: Despliegue en Azure
         if: env.platform == 'azure'
         run: echo "Ejecutando tareas para Azure"
+
+      - name: Mostrar Metadatos Básicos
+        run: |
+          echo "Usuario ejecutor: ${{ github.actor }}"
+          echo "Repositorio activo: ${{ github.repository }}"
+
+      - name: Debug del payload completo
+        run: echo '${{ toJSON(github.event) }}'
