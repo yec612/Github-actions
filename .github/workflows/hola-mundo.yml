@@ -1,0 +1,13 @@
+name: Hola Mundo
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar mensaje inicial
+        run: echo "Hola Mundo"
