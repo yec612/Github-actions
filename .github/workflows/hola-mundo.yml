@@ -23,3 +23,10 @@ jobs:
           echo "Región asignada: ${{ env.region }}"
           echo "Entorno de cuenta: ${{ env.account }}"
           
+      - name: Despliegue en AWS
+        if: env.platform == 'aws'
+        run: echo "Ejecutando tareas para AWS"
+
+      - name: Despliegue en Azure
+        if: env.platform == 'azure'
+        run: echo "Ejecutando tareas para Azure"
