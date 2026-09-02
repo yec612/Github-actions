@@ -38,3 +38,16 @@ jobs:
 
       - name: Debug del payload completo
         run: echo '${{ toJSON(github.event) }}'
+
+      - name: Validación de Credenciales
+        env:
+          USER_NAME: ${{ secrets.USERNAME }}
+          USER_PASS: ${{ secrets.PASSWORD }}
+        if: ${{ env.USER_NAME != '' && env.USER_PASS != '' }}
+        run: |
+          echo "Estado: Credenciales de autenticación detectadas. Procediendo..."
+
+      - name: Referencia a Variable Global
+        run: |
+          echo "Versión del proyecto: ${{ vars.PROJECT_VERSION }}"
+
